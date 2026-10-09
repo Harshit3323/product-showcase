@@ -1,0 +1,15 @@
+{
+  "name": "Product Showcase",
+  "model": "assets/models/product.glb",
+  "iosModel": "assets/models/product.usdz",
+  "poster": "assets/posters/poster.svg",
+  "ar": { "placement": "floor", "scale": "auto" },
+  "camera": { "orbit": "30deg 75deg auto", "minOrbit": "auto 20deg auto", "maxOrbit": "auto 100deg auto" },
+  "variants": [
+    { "name": "Silver", "color": "#e8e8e8" },
+    { "name": "Blue", "color": "#4f8cff" }
+  ],
+  "hotspots": [
+    { "label": "Feature name", "position": "0m 1m 0.2m", "normal": "0m 0m 1m" }
+  ]
+}
