@@ -75,7 +75,7 @@ export function initViewer(config) {
     if (!viewer.availableAnimations?.length) return;
 
     viewer.currentTime = 0;
-    viewer.play({ repetitions: 1 });
+    viewer.play({ repetitions: 1, pingpong: true });
   }
 
   function onAnimationFinished() {
