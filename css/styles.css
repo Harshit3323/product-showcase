@@ -1,6 +1,8 @@
 @import "tokens.css";
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -31,7 +33,7 @@ body {
 
 #app {
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: 1fr;
   min-height: 100vh;
   min-height: 100dvh;
 }
@@ -91,7 +93,9 @@ body {
   cursor: pointer;
   min-height: var(--touch-target);
   min-width: var(--touch-target);
-  transition: background var(--transition-fast), color var(--transition-fast);
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast);
 }
 
 .mode-toggle__btn:focus-visible {
@@ -144,7 +148,9 @@ body {
   justify-content: center;
   background: var(--color-surface);
   z-index: var(--z-overlay);
-  transition: opacity var(--transition-normal), visibility var(--transition-normal);
+  transition:
+    opacity var(--transition-normal),
+    visibility var(--transition-normal);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -169,7 +175,9 @@ body {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .loading-overlay__text {
@@ -220,7 +228,9 @@ body {
   z-index: var(--z-overlay);
   visibility: hidden;
   opacity: 0;
-  transition: opacity var(--transition-normal), visibility var(--transition-normal);
+  transition:
+    opacity var(--transition-normal),
+    visibility var(--transition-normal);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -264,7 +274,9 @@ body {
   cursor: pointer;
   min-height: var(--touch-target);
   min-width: var(--touch-target);
-  transition: background var(--transition-fast), transform var(--transition-fast);
+  transition:
+    background var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 .btn:focus-visible {
@@ -309,132 +321,6 @@ body {
   }
 }
 
-.ar-launch {
-  position: absolute;
-  bottom: var(--spacing-xl);
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: var(--z-overlay);
-  width: 100%;
-  max-width: 320px;
-  padding: 0 var(--spacing-md);
-  pointer-events: none;
-}
-
-.ar-launch__btn {
-  pointer-events: auto;
-  width: 100%;
-}
-
-.ar-tip-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: calc(var(--spacing-xl) + 60px);
-  z-index: var(--z-overlay);
-  pointer-events: none;
-}
-
-.ar-tip-overlay__content {
-  pointer-events: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-md) var(--spacing-lg);
-  background: rgba(0, 0, 0, 0.85);
-  color: white;
-  border-radius: var(--radius-lg);
-  text-align: center;
-  max-width: 90vw;
-  animation: slideUp 0.3s ease;
-}
-
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.ar-tip-overlay__text {
-  font-size: 0.875rem;
-  line-height: 1.4;
-}
-
-.ar-tip-overlay__dismiss {
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.5);
-  color: white;
-  padding: var(--spacing-xs) var(--spacing-md);
-  border-radius: var(--radius-full);
-  font-size: 0.75rem;
-  cursor: pointer;
-  min-height: var(--touch-target);
-}
-
-.ar-tip-overlay__dismiss:hover {
-  background: rgba(255,255,255,0.1);
-}
-
-.ar-tip-overlay--hidden {
-  display: none;
-}
-
-.unsupported-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: var(--spacing-lg);
-  background: var(--color-surface);
-  color: var(--color-text);
-  text-align: center;
-  z-index: var(--z-overlay);
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity var(--transition-normal), visibility var(--transition-normal);
-}
-
-@media (prefers-color-scheme: dark) {
-  .unsupported-overlay {
-    background: var(--color-surface-dark);
-    color: var(--color-text-dark);
-  }
-}
-
-.unsupported-overlay--visible {
-  visibility: visible;
-  opacity: 1;
-}
-
-.unsupported-overlay__icon {
-  font-size: 3rem;
-  margin-bottom: var(--spacing-md);
-  opacity: 0.6;
-}
-
-.unsupported-overlay__title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: var(--spacing-xs);
-}
-
-.unsupported-overlay__message {
-  font-size: 0.875rem;
-  color: var(--color-text-muted);
-  margin-bottom: var(--spacing-lg);
-  max-width: 280px;
-}
-
-@media (prefers-color-scheme: dark) {
-  .unsupported-overlay__message {
-    color: var(--color-text-muted-dark);
-  }
-}
-
 .toast {
   position: fixed;
   bottom: var(--spacing-xl);
@@ -447,7 +333,9 @@ body {
   font-size: 0.875rem;
   z-index: var(--z-toast);
   opacity: 0;
-  transition: transform var(--transition-normal), opacity var(--transition-normal);
+  transition:
+    transform var(--transition-normal),
+    opacity var(--transition-normal);
   pointer-events: none;
 }
 
@@ -486,7 +374,9 @@ body {
   cursor: pointer;
   min-height: var(--touch-target);
   min-width: 72px;
-  transition: border-color var(--transition-fast), transform var(--transition-fast);
+  transition:
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -543,7 +433,9 @@ body {
 }
 
 .hotspot__dot:focus-visible {
-  box-shadow: 0 0 0 3px var(--color-primary), 0 2px 8px var(--color-shadow);
+  box-shadow:
+    0 0 0 3px var(--color-primary),
+    0 2px 8px var(--color-shadow);
 }
 
 .hotspot__label {
@@ -593,9 +485,12 @@ body {
 }
 
 .reset-view-btn svg {
+  display: block;
   width: 20px;
   height: 20px;
+  fill: none;
   stroke: currentColor;
+  stroke-width: 2;
 }
 
 .sr-only {
