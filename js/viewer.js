@@ -62,7 +62,25 @@ export function initViewer(config) {
     if (!viewer.positionAndNormalFromPoint(event.clientX, event.clientY))
       return;
 
+    playAnimationOnce();
+  }
+
+  function onARStatus(event) {
+    if (event.detail.status === "session-started") {
+      playAnimationOnce();
+    }
+  }
+
+  function playAnimationOnce() {
+    if (!viewer.availableAnimations?.length) return;
+
+    viewer.currentTime = 0;
     viewer.play({ repetitions: 1 });
+  }
+
+  function onAnimationFinished() {
+    viewer.pause();
+    viewer.currentTime = 0;
   }
 
   function onRetry() {
@@ -82,6 +100,8 @@ export function initViewer(config) {
   viewer.addEventListener("error", onError);
   viewer.addEventListener("camera-change", onInteraction);
   viewer.addEventListener("click", onModelTap);
+  viewer.addEventListener("ar-status", onARStatus);
+  viewer.addEventListener("finished", onAnimationFinished);
   retryBtn?.addEventListener("click", onRetry);
   resetBtn?.addEventListener("click", onReset);
 
@@ -93,6 +113,8 @@ export function initViewer(config) {
       viewer.removeEventListener("error", onError);
       viewer.removeEventListener("camera-change", onInteraction);
       viewer.removeEventListener("click", onModelTap);
+      viewer.removeEventListener("ar-status", onARStatus);
+      viewer.removeEventListener("finished", onAnimationFinished);
       retryBtn?.removeEventListener("click", onRetry);
       resetBtn?.removeEventListener("click", onReset);
     },
