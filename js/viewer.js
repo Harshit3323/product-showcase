@@ -75,7 +75,7 @@ export function initViewer(config) {
     if (!viewer.availableAnimations?.length) return;
 
     viewer.currentTime = 0;
-    viewer.play({ repetitions: 1, pingpong: true });
+    viewer.play({ repetitions: Infinity, pingpong: false });
   }
 
   function onAnimationFinished() {
@@ -92,7 +92,10 @@ export function initViewer(config) {
 
   function onReset() {
     viewer.cameraOrbit = `${defAzimuth} ${defPolar} ${defRadius}`;
-    viewer.fieldOfView = "45deg";
+    viewer.cameraTarget = "auto auto auto";
+    viewer.fieldOfView = "auto";
+    userInteracted = false;
+    viewer.autoRotate = true;
   }
 
   viewer.addEventListener("load", onLoad);
